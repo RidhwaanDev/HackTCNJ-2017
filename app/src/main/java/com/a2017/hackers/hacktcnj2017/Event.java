@@ -1,5 +1,9 @@
 package com.a2017.hackers.hacktcnj2017;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -8,8 +12,7 @@ import java.util.UUID;
  */
 
 
-public class Event {
-
+public class Event implements Serializable {
 
     private String name;
     private String location;
@@ -25,12 +28,11 @@ public class Event {
         this.mUUID = mUUID;
     }
 
-    public Event(String name, String location, String timeInformation, ArrayList<User> u) {
+    public Event(String name, String location, String timeInformation) {
         this.mUUID = UUID.randomUUID();
         this.name = name;
         this.location = location;
         this.timeInformation = timeInformation;
-        this.mUsersList = u;
     }
 
     public String getName() {

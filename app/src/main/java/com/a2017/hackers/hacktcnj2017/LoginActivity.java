@@ -49,7 +49,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity  {
+public class LoginActivity extends AppCompatActivity {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -90,14 +90,14 @@ public class LoginActivity extends AppCompatActivity  {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.input_email);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
+
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                if (id == R.id.password || id == EditorInfo.IME_NULL) {
                     attemptLogin();
                     return true;
                 }
@@ -112,9 +112,6 @@ public class LoginActivity extends AppCompatActivity  {
                 attemptLogin();
             }
         });
-
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
     }
 
     @Override
@@ -123,8 +120,8 @@ public class LoginActivity extends AppCompatActivity  {
 
         // Check auth on Activity start
         if (mAuth.getCurrentUser() != null) {
-            Log.d("TAG", "CURRENT USER DETECTED:    " + mAuth.getCurrentUser().getEmail() );
-            user = new User (mAuth.getCurrentUser().getEmail());
+            Log.d("TAG", "CURRENT USER DETECTED:    " + mAuth.getCurrentUser().getEmail());
+            user = new User(mAuth.getCurrentUser().getEmail());
         }
     }
 
@@ -143,7 +140,7 @@ public class LoginActivity extends AppCompatActivity  {
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-                Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
                     .setAction(android.R.string.ok, new View.OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
@@ -184,7 +181,7 @@ public class LoginActivity extends AppCompatActivity  {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        final String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -223,7 +220,7 @@ public class LoginActivity extends AppCompatActivity  {
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d("TAG", "createUserWithEmail:onComplete:" + task.isSuccessful() + "   "+  task.getException());
+                            Log.d("TAG", "createUserWithEmail:onComplete:" + task.isSuccessful() + "   " + task.getException());
 
                             // If sign in fails, display a message to the user. If sign in succeeds
                             // the auth state listener will be notified and logic to handle the
@@ -232,18 +229,12 @@ public class LoginActivity extends AppCompatActivity  {
                                 String e = task.getException().toString();
                                 Toast.makeText(LoginActivity.this, e,
                                         Toast.LENGTH_LONG).show();
-                            }
-                            else{
+                            } else {
 
                                 user = new User(mAuth.getCurrentUser().getEmail());
-                                /*
-                                Intent intent = new Intent(this, ScheduleActivity.class);
-                                Bundle b = new Bundle();
-                                b.putInt("userEmail", email_; //Your id
-                                intent.putExtras(b); //Put your id to your next Intent
-                                startActivity(intent);
-                                finish();
-                                */
+
+                                Intent i = ScheduleActivity.newInstance(LoginActivity.this, email);
+                                startActivity(i);
                             }
 
                             // ...
@@ -252,7 +243,6 @@ public class LoginActivity extends AppCompatActivity  {
         }
 
     }
-
 
 
     private boolean isEmailValid(String email) {
@@ -274,31 +264,9 @@ public class LoginActivity extends AppCompatActivity  {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-                }
-            });
 
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
+
+
     }
-
-
 }
-

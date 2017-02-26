@@ -4,22 +4,35 @@ package com.a2017.hackers.hacktcnj2017;
  * Created by user on 2/25/2017.
  */
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.Button;
+import android.widget.TextView;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -28,17 +41,25 @@ import java.util.ArrayList;
 
 public class ScheduleFragment extends Fragment {
 
+    public static final String ARGS_DATE_PICKER = ScheduleFragment.class.getCanonicalName();
+    public static final String DIALOG_ID = "1";
+    public static final String RESULT_ID = "2";
+
 
     private DatabaseReference mDataBase, mDataBaseEventReference;
 
-    private ArrayList<Users> listOfEvents = new ArrayList<>();
-
+    private ArrayList<Event> listOfEvents;
+    private static final int REQUEST_CODE = 1;
     private RecyclerView mRecyclerView;
     private EventAdapter mEventAdapter;
 
     private static final String sUSERNAME = "Bob";
     private Button actionBUtton;
     private Event mEvent;
+
+    private Date date;
+
+
 
 
     @Nullable
@@ -52,25 +73,56 @@ public class ScheduleFragment extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_id);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
+        listOfEvents = EventStash.getInstance().sListOfEvents;
         updateUI();
 
-        mDataBase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
+
+
+
+        FloatingActionButton fab = (FloatingActionButton)v.findViewById(R.id.button_add);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getContext(),AddEventActivity.class);
+                startActivityForResult(i,REQUEST_CODE);
             }
         });
+
+
 
         return v;
     }
 
-    public void updateUI() {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        Log.d("TEST", "EVENT CREATION CALLED22" + requestCode);
+
+        if(resultCode != Activity.RESULT_OK){
+
+            Log.d("TEST", "EVENT CREATION CALLED2");
+
+            return;
+        }
+
+        if(requestCode == REQUEST_CODE && data != null){
+            Log.d("TEST", "EVENT CREATION CALLED2");
+
+          //  Event o = (Event) data.getSerializableExtra(AddEventActivity.ARG_EVENT);
+           // EventStash.getInstance().addEvent(o);
+           // Log.d("TEST","OBJ DATA" + o.getName());
+            //updateUI();
+        }
+
+
+    }
+
+
+
+    public void updateUI() {
         mEventAdapter = new EventAdapter();
         mRecyclerView.setAdapter(mEventAdapter);
     }
@@ -79,12 +131,24 @@ public class ScheduleFragment extends Fragment {
     private class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private CardView cardView;
+        private TextView titleText;
+        private TextView numberofMembers;
+
+
 
 
         public EventHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.card_view_data);
 
+            itemView.setOnClickListener(this);
+            cardView = (CardView) itemView.findViewById(R.id.card_view_data);
+            titleText = (TextView) itemView.findViewById(R.id.event_title);
+            numberofMembers = (TextView) itemView.findViewById(R.id.number_of_members);
+
+        }
+
+        public void bindHolder(Event o){
+            titleText.setText(o.getName());
         }
 
         @Override
@@ -100,17 +164,12 @@ public class ScheduleFragment extends Fragment {
 
         public EventAdapter() {
 
-
-            e = new ArrayList<>();
-            e.add(new Event("Hello ", "New Jersey", "TODAY"));
-            e.add(new Event("HOy ", "New Engrand", "TODAY"));
-            e.add(new Event("ya ", "New Jersey", "TODAY"));
-            e.add(new Event("Hello ", "New Jersey", "TODAY"));
-            e.add(new Event("HOy ", "New Engrand", "TODAY"));
-            e.add(new Event("ya ", "New Jersey", "TODAY"));
-            e.add(new Event("Hello ", "New Jersey", "TODAY"));
-            e.add(new Event("HOy ", "New Engrand", "TODAY"));
-            e.add(new Event("ya ", "New Jersey", "TODAY"));
+        e = new ArrayList<>();
+            e.add(new Event("Hackathon","Lo1c","4"));
+            e.add(new Event("Science Fair Project","Loc","4"));
+            e.add(new Event("Math project","L22oc","4"));
+            e.add(new Event("Hackathon","Lo1c","34"));
+            e.add(new Event("Wod","Lo3c","42"));
 
         }
 
@@ -126,7 +185,8 @@ public class ScheduleFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(EventHolder holder, int position) {
-
+            Event se =  e.get(position);
+            holder.bindHolder(se);
         }
 
         @Override

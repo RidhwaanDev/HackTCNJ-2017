@@ -23,7 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddEvent" />
-        <activity android:name=".CheckEvent"></activity>
+        <activity android:name=".CheckEvent" />
+        <activity android:name=".CheckEventApproveDisapprove" />
+        <activity android:name=".CheckEventApproved" />
+        <activity android:name=".CheckEventAllReady" />
+        <activity android:name=".CheckEventExposed"></activity>
     </application>
 
 </manifest>

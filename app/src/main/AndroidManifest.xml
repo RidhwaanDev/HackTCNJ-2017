@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddEvent"></activity>
-    </application>
+        <activity android:name=".ScheduleActivity"></activity>
+        <activity android:name=".AddEventActivity"></activity>
 
+
+    </application>
 </manifest>

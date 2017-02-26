@@ -184,7 +184,7 @@ public class LoginActivity extends AppCompatActivity  {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        final String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -236,14 +236,9 @@ public class LoginActivity extends AppCompatActivity  {
                             else{
 
                                 user = new User(mAuth.getCurrentUser().getEmail());
-                                /*
-                                Intent intent = new Intent(this, ScheduleActivity.class);
-                                Bundle b = new Bundle();
-                                b.putInt("userEmail", email_; //Your id
-                                intent.putExtras(b); //Put your id to your next Intent
-                                startActivity(intent);
-                                finish();
-                                */
+
+                                Intent i = ScheduleActivity.newInstance(LoginActivity.this,email);
+                                startActivity(i);
                             }
 
                             // ...

@@ -1,8 +1,12 @@
 package com.a2017.hackers.hacktcnj2017;
 
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -10,7 +14,8 @@ import java.util.ArrayList;
 
 import static com.a2017.hackers.hacktcnj2017.LoginActivity.user;
 
-public class AddEvent extends AppCompatActivity {
+public class AddEvent extends Fragment {
+
     private EditText mEventNameEditText;
     private EditText mLocationAddressEditText;
     private EditText mDateEditText;
@@ -28,18 +33,22 @@ public class AddEvent extends AppCompatActivity {
     private ArrayList<User> users;
     private Event event;
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_event);
-        mEventNameEditText = (EditText) findViewById(R.id.eventName);
-        mLocationAddressEditText = (EditText) findViewById(R.id.locationAddress);
-        mDateEditText = (EditText) findViewById(R.id.date);
-        mTimeEditText = (EditText) findViewById(R.id.time);
-        mEmail1 = (EditText) findViewById(R.id.email1);
-        mEmail2 = (EditText) findViewById(R.id.email2);
-        mEmail3 = (EditText) findViewById(R.id.email3);
-        Button createEvent = (Button) findViewById(R.id.createEvent);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+       // Bundle args = getArguments().getBundle();
+
+        View v = inflater.inflate(R.layout.activity_add_event,container,false);
+        mEventNameEditText = (EditText)v. findViewById(R.id.eventName);
+        mLocationAddressEditText = (EditText)v. findViewById(R.id.locationAddress);
+        mDateEditText = (EditText)v. findViewById(R.id.date);
+        mTimeEditText = (EditText) v.findViewById(R.id.time);
+        mEmail1 = (EditText)v. findViewById(R.id.email1);
+        mEmail2 = (EditText)v. findViewById(R.id.email2);
+        mEmail3 = (EditText) v.findViewById(R.id.email3);
+        Button createEvent = (Button) v.findViewById(R.id.createEvent);
         createEvent.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -61,5 +70,8 @@ public class AddEvent extends AppCompatActivity {
                     }
                 }
         );
+
+        return v;
     }
+
 }

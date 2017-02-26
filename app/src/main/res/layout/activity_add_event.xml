@@ -43,16 +43,6 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:layout_below="@+id/locationAddress"
-        android:layout_alignStart="@+id/locationAddress"
-        android:id="@+id/date"
-        android:hint="Date:" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="time"
         android:ems="10"
         android:layout_below="@+id/date"
@@ -91,14 +81,6 @@
         android:hint="Email 3:" />
 
     <Button
-        android:text="More Emails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/email3"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/button2" />
-
-    <Button
         android:text="Create Event!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,4 +97,22 @@
         android:hint="Email 1:"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/time" />
+
+    <Button
+        android:text="More Emails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:layout_above="@+id/createEvent"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/date"
+        android:hint="Date:"
+        android:layout_below="@+id/locationAddress"
+        android:layout_alignEnd="@+id/createEvent" />
 </RelativeLayout>

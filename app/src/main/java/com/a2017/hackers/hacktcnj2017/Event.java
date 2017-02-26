@@ -1,5 +1,6 @@
 package com.a2017.hackers.hacktcnj2017;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -8,7 +9,7 @@ import java.util.UUID;
  */
 
 
-public class Event {
+public class Event implements Serializable {
 
 
     private String name;

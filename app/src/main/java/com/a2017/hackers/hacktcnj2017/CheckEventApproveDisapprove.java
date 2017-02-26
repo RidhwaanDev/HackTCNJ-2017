@@ -8,16 +8,17 @@ import android.content.Intent;
 
 public class CheckEventApproveDisapprove extends AppCompatActivity {
 
-    Button approve = (Button) findViewById(R.id.approve);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_event_approve_disapprove);
+        Button approve = (Button) findViewById(R.id.approve);
         approve.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         Intent i = new Intent(CheckEventApproveDisapprove.this, CheckEventApproved.class);
+                        startActivity(i);
                     }
                 }
         );

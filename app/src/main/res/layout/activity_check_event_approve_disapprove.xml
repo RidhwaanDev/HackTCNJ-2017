@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_check_event"
+    android:id="@+id/activity_check_event_approve_disapprove"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.a2017.hackers.hacktcnj2017.CheckEvent">
-
+    tools:context="com.a2017.hackers.hacktcnj2017.CheckEventApproveDisapprove">
     <TextView
         android:text="TCNJ Hackathon"
         android:layout_width="wrap_content"
@@ -26,8 +25,7 @@
         android:id="@+id/textView4"
         android:textSize="16dp"
         android:layout_below="@+id/textView11"
-        android:layout_alignParentStart="true"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Time: 11:00 AM"
@@ -108,6 +106,15 @@
         android:id="@+id/textView21"
         android:textSize="20dp" />
 
+    <Button
+        android:text="Approve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_toStartOf="@+id/button4" />
+
     <TextView
         android:text="N/A"
         android:layout_width="wrap_content"
@@ -116,18 +123,7 @@
         android:textSize="20dp"
         android:layout_alignBaseline="@+id/textView13"
         android:layout_alignBottom="@+id/textView13"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="Uploaded"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/uploadedButton"
-        android:onClick="onClick"
-        android:textSize="20dp"
-        android:layout_alignBaseline="@+id/textView9"
-        android:layout_alignBottom="@+id/textView9"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignEnd="@+id/textView15" />
 
     <TextView
         android:text="Uploaded"
@@ -140,11 +136,19 @@
         android:layout_alignParentEnd="true" />
 
     <Button
+        android:text="Disapprove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_above="@+id/textView13"
+        android:layout_alignParentEnd="true" />
+
+    <Button
         android:text="Refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/button5"
         android:layout_marginTop="13dp"
-        android:id="@+id/button6"
         android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true" />
 

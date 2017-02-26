@@ -78,8 +78,21 @@
                 android:layout_marginTop="16dp"
                 android:text="Sign In"
                 android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:backgroundTint="@color/colorAccent"/>
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:paddingTop="15dp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text= "Already have an Account? Sign in."/>
+
+            <TextView
+                android:paddingTop="5dp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text= "Forogt password."/>
 
         </LinearLayout>
     </ScrollView>

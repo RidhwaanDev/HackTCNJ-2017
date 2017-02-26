@@ -22,9 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScheduleActivity"></activity>
-        <activity android:name=".AddEventActivity"></activity>
-
-
+        <activity android:name=".AddEvent" />
+        <activity android:name=".CheckEvent" />
+        <activity android:name=".CheckEventApproveDisapprove" />
+        <activity android:name=".CheckEventApproved" />
+        <activity android:name=".CheckEventAllReady" />
+        <activity android:name=".CheckEventExposed"></activity>
     </application>
+
 </manifest>

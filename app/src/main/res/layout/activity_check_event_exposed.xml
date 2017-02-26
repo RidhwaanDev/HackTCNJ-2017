@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_check_event"
+    android:id="@+id/activity_check_event_exposed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.a2017.hackers.hacktcnj2017.CheckEvent">
-
+    tools:context="com.a2017.hackers.hacktcnj2017.CheckEventExposed">
     <TextView
         android:text="TCNJ Hackathon"
         android:layout_width="wrap_content"
@@ -27,7 +26,8 @@
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#FF0000" />
 
     <TextView
         android:text="Ridhwaan Anayetullah"
@@ -50,7 +50,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:text="N/A"
+        android:text="Approved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView14"
@@ -59,7 +59,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:text="N/A"
+        android:text="Approved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView19"
@@ -69,18 +69,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Uploaded"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/uploadedButton"
-        android:onClick="onClick"
-        android:textSize="20dp"
-        android:layout_alignBaseline="@+id/textView9"
-        android:layout_alignBottom="@+id/textView9"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="Uploaded"
+        android:text="Approved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView15"
@@ -146,5 +135,16 @@
         android:layout_marginTop="14dp"
         android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="EXPOSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/uploadedButton"
+        android:onClick="onClick"
+        android:textSize="20dp"
+        android:layout_above="@+id/textView13"
+        android:layout_alignParentEnd="true"
+        android:textColor="#FF0000" />
 
 </RelativeLayout>

@@ -8,9 +8,11 @@
         android:visibility="visible"
         android:id="@+id/card_view_data"
         android:elevation="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#001f3f"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:backgroundTint="#E0E0E0"
         android:layout_width="match_parent"
         android:layout_height="128dp"
         >
@@ -22,7 +24,7 @@
             >
 
             <TextView
-                android:textColor="#FFFF"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/event_title"
@@ -34,7 +36,7 @@
                 />
 
             <TextView
-                android:textColor="#FFFF"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/date_created"
@@ -46,15 +48,14 @@
                 />
 
             <TextView
-                android:textColor="#FFFF"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/number_of_members"
+                android:layout_marginLeft="4dp"
                 android:text="5 Members"
                 android:textSize="16dp"
                 android:textStyle="italic"
-                android:layout_margin="8dp"
-
 
                 />
 

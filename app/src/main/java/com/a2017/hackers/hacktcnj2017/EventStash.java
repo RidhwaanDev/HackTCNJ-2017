@@ -19,6 +19,7 @@ public class EventStash {
 
     public ArrayList<Event> sListOfEvents = new ArrayList<>();
 
+
     public static EventStash getInstance() {
 
         return ourInstance;
@@ -37,7 +38,9 @@ public class EventStash {
         mRootDataBaseReference.child("Users").setValue(map);
     }
 
-
+    public void addEvent(Event o){
+        sListOfEvents.add(o);
+    }
 
 
 

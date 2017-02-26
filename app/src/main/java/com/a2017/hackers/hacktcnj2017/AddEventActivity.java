@@ -3,9 +3,6 @@ package com.a2017.hackers.hacktcnj2017;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.ContentLoadingProgressBar;
-
-import java.io.Serializable;
 
 /**
  * Created by user on 2/25/2017.
@@ -16,8 +13,13 @@ public class AddEventActivity extends SingleFragmentActivity {
 
     @Override
     public Fragment createFragment() {
-        return new AddEvent();
+        return new AddEventFragment();
 
+    }
+
+    public void goToPicture(){
+        Intent i = new Intent(this, Picture.class);
+        startActivity(i);
     }
 
 

@@ -73,6 +73,8 @@ public class LoginActivity extends AppCompatActivity  {
     private View mProgressView;
     private View mLoginFormView;
 
+    public User user;
+
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
@@ -121,7 +123,8 @@ public class LoginActivity extends AppCompatActivity  {
 
         // Check auth on Activity start
         if (mAuth.getCurrentUser() != null) {
-            Log.d("TAG", "CURRENT USER DETECTED:    " + mAuth.getCurrentUser().getEmail());
+            Log.d("TAG", "CURRENT USER DETECTED:    " + mAuth.getCurrentUser().getEmail() );
+            user = new User (mAuth.getCurrentUser().getEmail());
         }
     }
 
@@ -232,9 +235,15 @@ public class LoginActivity extends AppCompatActivity  {
                             }
                             else{
 
-                                Intent intent = ScheduleActivity.newInstance(getApplicationContext(),email_);
+                                user = new User(mAuth.getCurrentUser().getEmail());
+                                /*
+                                Intent intent = new Intent(this, ScheduleActivity.class);
+                                Bundle b = new Bundle();
+                                b.putInt("userEmail", email_; //Your id
+                                intent.putExtras(b); //Put your id to your next Intent
                                 startActivity(intent);
-
+                                finish();
+                                */
                             }
 
                             // ...

@@ -25,12 +25,12 @@ public class Event {
         this.mUUID = mUUID;
     }
 
-    public Event(String name, String location, String timeInformation) {
+    public Event(String name, String location, String timeInformation, ArrayList<User> u) {
         this.mUUID = UUID.randomUUID();
         this.name = name;
         this.location = location;
         this.timeInformation = timeInformation;
-        this.mUsersList = mUsersList;
+        this.mUsersList = u;
     }
 
     public String getName() {

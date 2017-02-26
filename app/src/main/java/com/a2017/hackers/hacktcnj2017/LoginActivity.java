@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity  {
 
         // Check auth on Activity start
         if (mAuth.getCurrentUser() != null) {
-            Log.d("TAG", "CURRENT USER DETECTED:    " + mAuth.getCurrentUser().getEmail() );
+            Log.d("TAG", "CURRENT USER DETECTED:    " + mAuth.getCurrentUser().getEmail());
         }
     }
 
@@ -231,14 +231,10 @@ public class LoginActivity extends AppCompatActivity  {
                                         Toast.LENGTH_LONG).show();
                             }
                             else{
-                                /*
-                                Intent intent = new Intent(this, ScheduleActivity.class);
-                                Bundle b = new Bundle();
-                                b.putInt("userEmail", email_; //Your id
-                                intent.putExtras(b); //Put your id to your next Intent
+
+                                Intent intent = ScheduleActivity.newInstance(getApplicationContext(),email_);
                                 startActivity(intent);
-                                finish();
-                                */
+
                             }
 
                             // ...

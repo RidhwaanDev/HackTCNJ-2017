@@ -13,10 +13,10 @@ public class CheckEvent extends AppCompatActivity {
     }
 
     // Goes to funny picture
-    /*
+
     public void onClick(){
-        Intent i = new Intent(this, funnyPicture.class);
+        Intent i = new Intent(this, FunnyPictureActivity.class);
         startActivity(i);
     }
-*/
+
 }

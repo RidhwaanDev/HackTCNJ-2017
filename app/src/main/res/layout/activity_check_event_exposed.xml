@@ -50,7 +50,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:text="Approved"
+        android:text="SAFE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView14"
@@ -59,7 +59,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:text="Approved"
+        android:text="SAFE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView19"
@@ -69,7 +69,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Approved"
+        android:text="SAFE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView15"
@@ -140,7 +140,7 @@
         android:text="EXPOSE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/uploadedButton"
+        android:id="@+id/exposed"
         android:onClick="onClick"
         android:textSize="20dp"
         android:layout_above="@+id/textView13"

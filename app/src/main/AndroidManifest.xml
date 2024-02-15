@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-library
+        android:name="com.google.android.maps" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,11 @@
         android:label="Sign In"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value = "@string/google_maps_key"/>
+
         <activity
             android:name=".LoginActivity"
             android:label="Sign In">
@@ -27,7 +35,15 @@
         <activity android:name=".CheckEventApproveDisapprove" />
         <activity android:name=".CheckEventApproved" />
         <activity android:name=".CheckEventAllReady" />
-        <activity android:name=".CheckEventExposed"></activity>
+        <activity android:name=".CheckEventExposed" />
+        <activity android:name=".FunnyPictureActivity" />
+        <activity android:name=".FunnyPictureExposed" />
+        <activity
+            android:name=".Schedule"
+            android:label="@string/title_activity_schedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EmptySchedule" />
+        <activity android:name=".Login"></activity>
     </application>
 
 </manifest>

@@ -6,21 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class CheckEventApproved extends AppCompatActivity {
+public class EmptySchedule extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_event_approved);
-        Button refresh = (Button) findViewById(R.id.refresh);
-        refresh.setOnClickListener(
+        setContentView(R.layout.activity_empty_schedule);
+        Button addEvent = (Button) findViewById(R.id.addEvent);
+        addEvent.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        Intent i = new Intent(CheckEventApproved.this, CheckEventAllReady.class);
+                        Intent i = new Intent(EmptySchedule.this, AddEvent.class);
                         startActivity(i);
                     }
                 }
         );
     }
 }
-

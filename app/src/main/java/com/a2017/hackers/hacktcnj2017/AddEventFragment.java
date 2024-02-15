@@ -18,7 +18,7 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
-import static com.a2017.hackers.hacktcnj2017.LoginActivity.user;
+//import static com.a2017.hackers.hacktcnj2017.LoginActivity.user;
 
 public class AddEventFragment extends Fragment {
     public static final String ARG_EVENT_OBJ = AddEventFragment.class.getCanonicalName();
